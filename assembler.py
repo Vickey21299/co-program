@@ -217,7 +217,7 @@ for x in inster:
             movreg(x[1],x[2])
         if x[0]=="ld":
             line_count+=1
-            if len(ith_instruction) != 3:
+            if len(x) != 3:
                 error_message="Doesnot match the required number of tokens at line : " +  str(inster.index(x)+1)
                 break
             if x[1] not in ty_reg or x[1] == "FLAGS":
@@ -229,7 +229,7 @@ for x in inster:
             load(x[1],variables[x[2]]+line_count+num_var)
         if x[0]=="st":
             line_count+=1
-            if len(ith_instruction) != 3:
+            if len(x) != 3:
                 error_message="Doesnot match the required number of tokens at line : " +  str(inster.index(x)+1)
                 break
             if x[1] not in ty_reg or x[1] == "FLAGS":
@@ -533,7 +533,7 @@ for x in inster:
                 movreg(x[1],x[2])
             if x[0]=="ld":
                 line_count+=1
-                if len(ith_instruction) != 3:
+                if len(x) != 3:
                     error_message="Doesnot match the required number of tokens at line : " +  str(inster.index(x)+1)
                     break
                 if x[1] not in ty_reg or x[1] == "FLAGS":
@@ -545,7 +545,7 @@ for x in inster:
                 load(x[1],variables[x[2]]+line_count+num_var)
             if x[0]=="st":
                 line_count+=1
-                if len(ith_instruction) != 3:
+                if len(x) != 3:
                     error_message="Doesnot match the required number of tokens at line : " +  str(inster.index(x)+1)
                     break
                 if x[1] not in ty_reg or x[1] == "FLAGS":
@@ -730,9 +730,9 @@ for x in inster:
             error_message="wrong command after lable"
             print(error_message)
             break
-    else:
-        error_message="syntax error on line:"+str(inster.index(x)+1)
-        print(error_message)
+    # else:
+    #     error_message="syntax error on line:"+str(inster.index(x)+1)
+    #     print(error_message)
    
 
 for x in binary_list:
